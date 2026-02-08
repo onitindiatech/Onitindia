@@ -1,24 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { FaArrowUpLong } from "react-icons/fa6";
 
 function Landingpage() {
-  const alternates = [
-    ["Task.", "Time."],
-    ["Help.", "Fast."],
-  ];
-
-  const [activeSet, setActiveSet] = useState(0);
   const [registerCount, setRegisterCount] = useState(0);
   const [pinCount, setPinCount] = useState(0);
-
-  // Alternate text animation
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveSet((prev) => (prev + 1) % alternates.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
 
   // Counter animations
   useEffect(() => {
@@ -45,13 +30,6 @@ function Landingpage() {
       clearInterval(pinInterval);
     };
   }, []);
-
-  const slideVariant = {
-    initial: { y: "100%", opacity: 0 },
-    animate: { y: 0, opacity: 1 },
-    exit: { y: "-100%", opacity: 0 },
-    transition: { duration: 0.85, ease: [0.7, 0, 0.24, 1] },
-  };
 
   return (
     <div
@@ -83,45 +61,9 @@ function Landingpage() {
 
       {/* ===== HEADLINE AREA ===== */}
       <div className="px-4 sm:px-8 md:px-20">
-        <h1 className="flex flex-col gap-[0.1rem] sm:gap-[0.2rem] md:gap-[0.3rem]">
-          {/* --- FIRST LINE --- */}
-          <div className="flex items-end gap-3 leading-none">
-            <span className="text-[10vw] sm:text-[7vw] md:text-[6.5vw] uppercase font-bold text-zinc-800">
-              Any
-            </span>
-            <div className="overflow-hidden h-[10vw] sm:h-[7vw] md:h-[6.5vw]">
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={activeSet + "-any"}
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
-                  variants={slideVariant}
-                  className="block text-[10vw] sm:text-[7vw] md:text-[6.5vw] uppercase font-bold text-green-500 leading-none"
-                >
-                  {alternates[activeSet][0]}
-                </motion.span>
-              </AnimatePresence>
-            </div>
-          </div>
-
-          {/* --- SECOND LINE --- */}
-          <div className="flex items-end gap-3 leading-none">
-            <span className="text-[10vw] sm:text-[7vw] md:text-[6.5vw] font-bold text-zinc-800">
-              REAL{" "}
-              <span className="text-green-500 font-bold">FAST</span>
-            </span>
-          </div>
-
-          {/* --- THIRD LINE --- */}
-          <div className="flex items-end gap-3 leading-none ">
-            <span className="text-[13vw] sm:text-[9vw] md:text-[7vw] font-bold text-zinc-800">
-              We’re{" "}
-              <span className="text-zinc-800 font-bold">On</span>
-              <span className="text-green-500 font-bold leading-none">IT</span>
-            </span>
-          </div>
-        </h1>
+        <h1>Post a task. Get it done with trust.</h1>
+        <h2>Outcome-Based Task Marketplace for the Future of Work</h2>
+        <p>OnIT is a task-first platform where anyone can post tasks and skilled professionals deliver results. Unlike hiring platforms or freelance marketplaces, OnIT manages trust through milestone escrow, verified work history, and performance-based matching.</p>
         <div className="mt-5 w-[90%] md:hidden">
           <p className="text-base text-zinc-600 leading-tight font-medium text-justify">
             Connecting people who need help with those ready to help <span className="text-green-500 font-bold">instantly,</span> <span className="text-green-500 font-bold">locally,</span> and with  <span className="text-green-500 font-bold">direct and fair connections.</span>
