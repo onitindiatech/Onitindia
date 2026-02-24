@@ -198,7 +198,6 @@ function Navbar() {
         </div>
         {/* ================= DESKTOP BUTTONS ================= */}
         <div className="hidden md:flex items-center gap-4">
-<<<<<<< HEAD
           {/* Sign In Button */}
           <button
             onClick={() => navigate("/login")}
@@ -214,19 +213,6 @@ function Navbar() {
           >
             Sign Up
           </button>
-=======
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSeD90sDCZFts-uu_g_FgfVfG4Qmb1Ixyf0rJI7f-I4y9L6hgA/viewform"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center gap-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white text-sm font-bold pl-6 pr-2 py-2 rounded-full "
-          >
-            <span className="tracking-wide">Start Posting</span>
-            <div className="bg-white/20 rounded-full p-2 group-hover:bg-black group-hover:text-white ">
-              <ArrowRight size={16} strokeWidth={2.5} />
-            </div>
-          </a>
->>>>>>> f34be6035be733b0f605ba286734b0031df7d313
         </div>
         {/* ================= MOBILE MENU BUTTON ================= */}
         <div className="md:hidden z-[1000]">
@@ -277,7 +263,6 @@ function Navbar() {
               >
                 Join Us
               </button>
-<<<<<<< HEAD
 
               {/* Mobile Sign In Button */}
               <button
@@ -294,8 +279,6 @@ function Navbar() {
               >
                 Sign Up
               </button>
-=======
->>>>>>> f34be6035be733b0f605ba286734b0031df7d313
             </motion.div>
           )}
         </AnimatePresence>

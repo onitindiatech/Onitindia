@@ -26,21 +26,13 @@ function Testimonials() {
     {
       name: "Abhi Reddy",
       profession: "Private job",
-<<<<<<< HEAD
       text: "Booked a plumber instantly — no calls, no waiting. Just OnIT!",
-=======
-      text: "Helped me get my presentation done quickly",
->>>>>>> f34be6035be733b0f605ba286734b0031df7d313
       img: img2,
     },
     {
       name: "Kiran Das",
       profession: "Cafe Owner",
-<<<<<<< HEAD
       text: "Found someone to fix my espresso machine within an hour. Amazing service!",
-=======
-      text: "Found someone to make menu designing . Amazing service!",
->>>>>>> f34be6035be733b0f605ba286734b0031df7d313
       img: img4,
     },
     {
@@ -52,11 +44,7 @@ function Testimonials() {
     {
       name: "Vikram Mehta",
       profession: "Event Planner",
-<<<<<<< HEAD
       text: "Needed last-minute hands for setup. OnIT connected me fast and saved my day!",
-=======
-      text: "Needed last-minute hands for onground support. OnIT connected me fast and saved my day!",
->>>>>>> f34be6035be733b0f605ba286734b0031df7d313
       img: img1,
     },
   ];

@@ -12,68 +12,38 @@ import t6 from "../assets/t6.png";
 
 const knowAboutUsCards = [
   {
-<<<<<<< HEAD
     seekerQ: "I need someone to fix my leaking tap quickly.",
     performerA: "I’m a local plumber who can help you right away.",
-=======
-    seekerQ: "Build a list of 200 companies with contact details in Excel.",
-    performerA: "I can research and compile this accurately.",
->>>>>>> f34be6035be733b0f605ba286734b0031df7d313
     seekerAvatar: t3,
     performerAvatar: t1, // plumber avatar
   },
   {
-<<<<<<< HEAD
     seekerQ: "I’m shifting apartments and need help with packing.",
     performerA: "I can assist with packing and moving your stuff safely.",
-=======
-    seekerQ: "Edit this video and add captions for social media",
-    performerA: "I can edit the video and add clear captions",
->>>>>>> f34be6035be733b0f605ba286734b0031df7d313
     seekerAvatar: t4,
     performerAvatar: t2, // mover avatar
   },
   {
-<<<<<<< HEAD
     seekerQ: "Can someone help me set up my new smart TV?",
     performerA: "I’ve experience with installing smart devices - I can help!",
-=======
-    seekerQ: "Create a PPT from these notes i have shared",
-    performerA: "I can make a clear and professional presentation.",
->>>>>>> f34be6035be733b0f605ba286734b0031df7d313
     seekerAvatar: t6,
     performerAvatar: t5, // tech installer
   },
   {
-<<<<<<< HEAD
     seekerQ: "I’m busy with work, and my plants need daily watering.",
     performerA: "I live nearby and can take care of your plants every day.",
-=======
-    seekerQ: "Create a 1-page landing page using this template and content.",
-    performerA: "can set up using your template and content in an hour",
->>>>>>> f34be6035be733b0f605ba286734b0031df7d313
     seekerAvatar: t5,
     performerAvatar: t2, // gardener
   },
   {
-<<<<<<< HEAD
     seekerQ: "I need a tutor to help my kid with math homework.",
     performerA: "I’m a student teacher and can teach math after school hours.",
-=======
-    seekerQ: "I need someone to reply to customer emails",
-    performerA: "I can manage and respond to emails professionally",
->>>>>>> f34be6035be733b0f605ba286734b0031df7d313
     seekerAvatar: t6,
     performerAvatar: t4, // teacher
   },
   {
-<<<<<<< HEAD
     seekerQ: "I have guests coming - can anyone clean my house today?",
     performerA: "I offer same-day house cleaning services in your area.",
-=======
-    seekerQ: "Visit this store and take product shelf photos.",
-    performerA: "I can visit and share the photos you need.",
->>>>>>> f34be6035be733b0f605ba286734b0031df7d313
     seekerAvatar: t1,
     performerAvatar: t6, // cleaner
   },

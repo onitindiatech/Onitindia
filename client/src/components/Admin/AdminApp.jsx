@@ -13,6 +13,7 @@ import NotificationsPage from './pages/Notifications.jsx';
 import ModerationPage from './pages/Moderation.jsx';
 import ReportsPage from './pages/Reports.jsx';
 import SettingsPage from './pages/Settings.jsx';
+import DeletionPage from './pages/DeletionPage.jsx';
 import TicketsPage from './pages/support/Tickets.jsx';
 import LiveChatPage from './pages/support/LiveChat.jsx';
 import HelpCenterPage from './pages/support/HelpCenter.jsx';
@@ -43,6 +44,7 @@ const AdminApp = () => {
 
             <Route path="notifications" element={<NotificationsPage />} />
             <Route path="settings" element={<SettingsPage />} />
+            <Route path="deletion" element={<DeletionPage />} />
           </Route>
         </Route>
 

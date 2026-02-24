@@ -12,17 +12,14 @@
   "dependencies": {
     "@lottiefiles/dotlottie-react": "^0.17.6",
     "@lottiefiles/dotlottie-web": "^0.55.0",
-<<<<<<< HEAD
     "axios": "1.13.5",
     "browser-image-compression": "^2.0.2",
     "clsx": "2.1.1",
-=======
-    "browser-image-compression": "^2.0.2",
->>>>>>> f34be6035be733b0f605ba286734b0031df7d313
     "framer-motion": "^12.23.24",
     "gsap": "^3.13.0",
     "locomotive-scroll": "^5.0.0-beta.21",
     "lucide-react": "^0.562.0",
+    "onit-india-root": "file:..",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-feather": "^2.0.10",
@@ -30,13 +27,9 @@
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.9.5",
     "react-snap": "^1.23.0",
-<<<<<<< HEAD
     "realm-web": "^2.0.1",
     "recharts": "3.7.0",
     "tailwind-merge": "3.4.0"
-=======
-    "realm-web": "^2.0.1"
->>>>>>> f34be6035be733b0f605ba286734b0031df7d313
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",

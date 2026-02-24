@@ -5,7 +5,6 @@ import homeHelpVideo from "../assets/3.mp4";
 import tutoringVideo from "../assets/1.mp4";
 import food from "../assets/2.mp4"
 import tutoringGif from "../assets/4.gif";
-<<<<<<< HEAD
 
 const domains = [
   {
@@ -31,34 +30,6 @@ const domains = [
   {
     title: "Tutoring",
     description: "Find local tutors for any subject or skill you want to learn.",
-=======
-import technology from "../assets/Technology.mp4";
-
-const domains = [
-  {
-    title: " Tech, Data & Admin ",
-    description: "Get expert help with data work, tech, and everyday admin tasks.",
-    video: technology,
-  },
-  {
-    title: " Business Op & Research",
-    description: "Get help with research, reports, lists, and business operations tasks.",
-    animation: "https://lottie.host/embed/54336a68-cddc-412f-99da-89c110433d84/kGnwtsznZI.lottie",
-  },
-  {
-    title: "Content,Design & Marketing",
-    description: "Get help with content creation, design work, and marketing tasks.",
-    video: food,
-  },
-  {
-    title: "Academic & Knowledge sup",
-    description: "Get help with assignments, presentations, research, and study tasks.",
-    video: tutoringVideo,
-  },
-  {
-    title: "On-Ground & Local Assistance",
-    description: "Get help with location visits, document work, store checks, and nearby on-ground tasks.",
->>>>>>> f34be6035be733b0f605ba286734b0031df7d313
     img: tutoringGif,
   },
 ];

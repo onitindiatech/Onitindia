@@ -13,7 +13,8 @@ import {
     ChevronDown,
     ChevronRight,
     Headset,
-    ClipboardCheck
+    ClipboardCheck,
+    Trash2
 } from 'lucide-react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
@@ -54,6 +55,7 @@ const Sidebar = ({ isCollapsed, toggleSidebar }) => {
         { icon: <BarChart3 size={20} />, label: 'Reports', path: '/admin/reports' },
         { icon: <Bell size={20} />, label: 'Notifications', path: '/admin/notifications' },
         { icon: <Settings size={20} />, label: 'Settings', path: '/admin/settings' },
+        { icon: <Trash2 size={20} />, label: 'Data Deletion', path: '/admin/deletion' },
     ];
 
 

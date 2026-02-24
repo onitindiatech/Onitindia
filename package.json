@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "onit-india-root",
   "version": "1.0.0",
   "scripts": {
@@ -8,16 +7,10 @@
     "install-server": "cd server && npm install",
     "build": "npm run install-client && npm run build-client"
   },
-=======
->>>>>>> f34be6035be733b0f605ba286734b0031df7d313
   "dependencies": {
     "cloudinary": "^1.41.3",
     "multer": "^2.0.2",
     "multer-storage-cloudinary": "^4.0.0",
     "react-helmet-async": "^2.0.5"
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> f34be6035be733b0f605ba286734b0031df7d313

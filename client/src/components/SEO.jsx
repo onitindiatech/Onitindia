@@ -11,15 +11,9 @@ export default function SEO({
     canonical,
     schema
 }) {
-<<<<<<< HEAD
     const defaultImage = "https://onitindia.com/logo-2.jpg";
     const seoImage = image || defaultImage;
     const siteUrl = "https://onitindia.com";
-=======
-    const defaultImage = "https://www.onitindia.com/logo-2.jpg";
-    const seoImage = image || defaultImage;
-    const siteUrl = "https://www.onitindia.com";
->>>>>>> f34be6035be733b0f605ba286734b0031df7d313
     const fullTitle = title ? `${title} | OnIT India` : 'OnIT India | Flexible Local Work & Campus Tasks';
 
     return (
@@ -28,11 +22,7 @@ export default function SEO({
             <title>{fullTitle}</title>
             <meta name="description" content={description} />
             {keywords && <meta name="keywords" content={keywords} />}
-<<<<<<< HEAD
             <link rel="canonical" href={canonical || `${siteUrl}${window.location.pathname}`} />
-=======
-            {canonical && <link rel="canonical" href={canonical} />}
->>>>>>> f34be6035be733b0f605ba286734b0031df7d313
             <meta name="theme-color" content="#16a34a" />
 
             {/* Open Graph / Facebook */}
@@ -41,11 +31,7 @@ export default function SEO({
             <meta property="og:description" content={description} />
             <meta property="og:site_name" content={name} />
             <meta property="og:image" content={seoImage} />
-<<<<<<< HEAD
             <meta property="og:url" content={canonical || `${siteUrl}${window.location.pathname}`} />
-=======
-            <meta property="og:url" content={canonical || siteUrl} />
->>>>>>> f34be6035be733b0f605ba286734b0031df7d313
 
             {/* Twitter Card */}
             <meta name="twitter:card" content="summary_large_image" />
@@ -55,7 +41,6 @@ export default function SEO({
             <meta name="twitter:site" content="@onitindia" />
 
             {/* Structured Data (JSON-LD) */}
-<<<<<<< HEAD
             <script type="application/ld+json">
                 {JSON.stringify(schema || {
                     "@context": "https://schema.org",
@@ -86,27 +71,3 @@ export default function SEO({
     );
 }
 
-=======
-            {schema ? (
-                <script type="application/ld+json">
-                    {JSON.stringify(schema)}
-                </script>
-            ) : (
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "Organization",
-                        "name": "OnIT India",
-                        "url": siteUrl,
-                        "logo": defaultImage,
-                        "sameAs": [
-                            "https://twitter.com/onitindia",
-                            "https://www.linkedin.com/company/onitindia"
-                        ]
-                    })}
-                </script>
-            )}
-        </Helmet>
-    );
-}
->>>>>>> f34be6035be733b0f605ba286734b0031df7d313
