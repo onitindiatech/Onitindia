@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://onitindia.com/sitemap.xml
