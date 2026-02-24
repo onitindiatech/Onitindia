@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { FaArrowUp } from "react-icons/fa";
 
+<<<<<<< HEAD
 const SCROLL_TRIGGER = 200;
+=======
+const SCROLL_TRIGGER = 200; // px before button appears
+>>>>>>> f34be6035be733b0f605ba286734b0031df7d313
 
 export default function BackToTopButton() {
   const [show, setShow] = useState(false);

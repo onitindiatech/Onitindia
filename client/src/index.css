@@ -25,11 +25,17 @@ html, body {
 .animate-shimmer {
   animation: shimmer 3s infinite linear;
 }
+<<<<<<< HEAD
 
 html {
   scroll-behavior: smooth;
 }
 
+=======
+html {
+  scroll-behavior: smooth;
+}
+>>>>>>> f34be6035be733b0f605ba286734b0031df7d313
 .input {
   width: 100%;
   padding: 12px;

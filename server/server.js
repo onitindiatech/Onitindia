@@ -57,8 +57,13 @@ app.post("/api/upload-image", upload.single("image"), (req, res) => {
 ---------------------------------------- */
 mongoose
   .connect(process.env.MONGO_URI)
+<<<<<<< HEAD
   .then(() => console.log(" MongoDB Connected"))
   .catch((err) => console.log(" DB Error:", err));
+=======
+  .then(() => console.log("✅ MongoDB Connected"))
+  .catch((err) => console.log("❌ DB Error:", err));
+>>>>>>> f34be6035be733b0f605ba286734b0031df7d313
 
 /* ----------------------------------------
     MODELS
@@ -138,6 +143,7 @@ app.post("/api/admin-login", async (req, res) => {
     START SERVER
 ---------------------------------------- */
 const PORT = process.env.PORT || 5000;
+<<<<<<< HEAD
 
 if (process.env.NODE_ENV !== "production") {
   app.listen(PORT, () =>
@@ -146,3 +152,8 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 export default app;
+=======
+app.listen(PORT, () =>
+  console.log(`🚀 Server running on http://localhost:${PORT}`)
+);
+>>>>>>> f34be6035be733b0f605ba286734b0031df7d313

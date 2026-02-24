@@ -1,5 +1,9 @@
 import React, { useEffect } from "react"; // ✅ Import useEffect here
+<<<<<<< HEAD
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+=======
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+>>>>>>> f34be6035be733b0f605ba286734b0031df7d313
 import Landingpage from "./components/Landingpage";
 import Marquee from "./components/Marquee";
 import Navbar from "./components/Navbar";
@@ -22,9 +26,12 @@ import BlogPost from "./components/Blog/BlogPost";
 import Campus from "./components/Campus.jsx";
 import CampusDetail from "./components/CampusDetail";
 import SEO from "./components/SEO";
+<<<<<<< HEAD
 import AdminApp from "./components/Admin/AdminApp";
 
 import ScrollToTop from "./components/ScrollToTop";
+=======
+>>>>>>> f34be6035be733b0f605ba286734b0031df7d313
 
 function Home() {
   return (
@@ -49,6 +56,7 @@ function Home() {
     </>
   );
 }
+<<<<<<< HEAD
 
 
 const MainContent = () => {
@@ -74,6 +82,9 @@ const MainContent = () => {
     </div>
   );
 };
+=======
+import ScrollToTop from "./components/ScrollToTop";
+>>>>>>> f34be6035be733b0f605ba286734b0031df7d313
 
 function App() {
   useEffect(() => {
@@ -94,7 +105,25 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+<<<<<<< HEAD
       <MainContent />
+=======
+      <div className="min-h-screen w-full bg-gray-100 overflow-hidden">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/task-performers" element={<Task_Performers />} />
+          <Route path="/campus-detail" element={<CampusDetail />} />
+          <Route path="/blog" element={<BlogList />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
+          <Route path="/admin-login" element={<AdminLogin />} />
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
+          <Route path="/add-post" element={<AddPost />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+        </Routes>
+      </div>
+>>>>>>> f34be6035be733b0f605ba286734b0031df7d313
     </Router>
   );
 }

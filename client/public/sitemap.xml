@@ -3,7 +3,11 @@
     <!-- Main Home Page -->
   <url>
     <loc>https://onitindia.com/</loc>
+<<<<<<< HEAD
     <lastmod>2026-02-09</lastmod>
+=======
+    <lastmod>2026-02-04</lastmod>
+>>>>>>> f34be6035be733b0f605ba286734b0031df7d313
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,18 +15,27 @@
   <!-- Key Landing Pages -->
   <url>
     <loc>https://onitindia.com/campus-detail</loc>
+<<<<<<< HEAD
     <lastmod>2026-02-09</lastmod>
+=======
+    <lastmod>2026-02-04</lastmod>
+>>>>>>> f34be6035be733b0f605ba286734b0031df7d313
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://onitindia.com/task-performers</loc>
+<<<<<<< HEAD
     <lastmod>2026-02-09</lastmod>
+=======
+    <lastmod>2026-02-04</lastmod>
+>>>>>>> f34be6035be733b0f605ba286734b0031df7d313
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://onitindia.com/blog</loc>
+<<<<<<< HEAD
     <lastmod>2026-02-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -52,14 +65,32 @@
   <url>
     <loc>https://onitindia.com/privacy-policy</loc>
     <lastmod>2026-02-09</lastmod>
+=======
+    <lastmod>2026-02-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Legal & Info -->
+  <url>
+    <loc>https://onitindia.com/privacy-policy</loc>
+    <lastmod>2026-02-04</lastmod>
+>>>>>>> f34be6035be733b0f605ba286734b0031df7d313
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://onitindia.com/terms-and-conditions</loc>
+<<<<<<< HEAD
     <lastmod>2026-02-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
+=======
+    <lastmod>2026-02-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+>>>>>>> f34be6035be733b0f605ba286734b0031df7d313
 </urlset>
