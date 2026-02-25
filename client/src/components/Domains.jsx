@@ -8,28 +8,28 @@ import tutoringGif from "../assets/4.gif";
 
 const domains = [
   {
-    title: "Home Help",
-    description: "Get expert help for home chores, cleaning, and organizing tasks.",
+    title: "Business Operations & Research",
+    description: "Get expert help with research, reports, lists, and business operations tasks.",
     video: homeHelpVideo,
   },
   {
-    title: "Car & Driver",
-    description: "Find trusted drivers or get your car serviced without hassle.",
+    title: "Content,Design & Marketing",
+    description: "Get expert help with content creation, design work, and marketing tasks.",
     animation: "https://lottie.host/embed/54336a68-cddc-412f-99da-89c110433d84/kGnwtsznZI.lottie",
   },
   {
-    title: "Food & Grocery",
-    description: "Order groceries, food delivery, or get quick local errands done.",
+    title: "Tech, Data and Admin",
+    description: "Get expert help with tech setup, data handling, and admin tasks.",
     video: food,
   },
   {
-    title: "Project",
-    description: "Get your projects done — from ideas to execution.",
+    title: "Academic & Knowledge Support",
+    description: "Get expert help with assignments, presentations, research, and study tasks.",
     video: tutoringVideo,
   },
   {
-    title: "Tutoring",
-    description: "Find local tutors for any subject or skill you want to learn.",
+    title: "On-Ground & Local Assistance",
+    description: "Get help with location visits, document work, store checks, and other on-ground tasks nearby.",
     img: tutoringGif,
   },
 ];

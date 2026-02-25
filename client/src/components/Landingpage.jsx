@@ -13,10 +13,8 @@ import {
   UserPlus,
   UserCheck,
   FilePlus,
-  Clock,
+  X,
 } from "react-feather";
-import { useNavigate } from "react-router-dom";
-import logoImage from "../assets/logo.png";
 
 /**
  * Top SaaS-style Landing Page (single-file React component)
@@ -59,6 +57,8 @@ export default function LandingPage() {
   const [activeTab, setActiveTab] = useState("post");
   const [templateIndex, setTemplateIndex] = useState(0);
   const [heroWordIndex, setHeroWordIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [taskDetails, setTaskDetails] = useState("");
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -75,11 +75,16 @@ export default function LandingPage() {
     };
   }, []);
 
+  const handlePostTask = (details) => {
+    setTaskDetails(details);
+    setIsModalOpen(true);
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900">
       <Navbar />
 
-      <main style={{ paddingTop: NAV_HEIGHT }}>
+      <main style={{ paddingTop: NAV_HEIGHT }} className="relative">
         <HeroGlow />
 
         <section className="relative z-10 mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8 pt-12 pb-10">
@@ -88,7 +93,7 @@ export default function LandingPage() {
           <TabSwitcher activeTab={activeTab} setActiveTab={setActiveTab} />
 
           <div className="mt-14">
-            <SearchCard templateIndex={templateIndex} />
+            <SearchCard templateIndex={templateIndex} onPostTask={handlePostTask} />
           </div>
         </section>
 
@@ -96,6 +101,120 @@ export default function LandingPage() {
           <CategoryChips />
         </section>
       </main>
+
+      {/* Modal */}
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} taskDetails={taskDetails} />
+    </div>
+  );
+}
+
+/* ----------------------------- MODAL ----------------------------- */
+
+function Modal({ isOpen, onClose, taskDetails }) {
+  const [mobileNumber, setMobileNumber] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [message, setMessage] = useState("");
+
+  if (!isOpen) return null;
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setMessage("");
+
+    try {
+      const response = await fetch(`/api/submit-task`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          taskDetails: taskDetails || "",
+          mobileNumber: mobileNumber,
+        }),
+      });
+
+      const text = await response.text();
+      
+      if (response.ok) {
+        setMessage("Task submitted successfully! Our team will connect with you within 2 min.");
+        setTimeout(() => {
+          onClose();
+          setMobileNumber("");
+          setMessage("");
+        }, 2000);
+      } else {
+        setMessage(text || "Failed to submit task. Please try again.");
+      }
+    } catch (err) {
+      console.error("Submit task error:", err);
+      setMessage("Failed to submit task. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center">
+      {/* Backdrop */}
+      <div 
+        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+        onClick={onClose}
+      />
+      
+      {/* Modal Content */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        className="relative z-10 w-full max-w-md mx-4 rounded-2xl bg-white p-6 sm:p-8 shadow-2xl"
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 transition"
+        >
+          <X size={24} />
+        </button>
+
+        <div className="text-center">
+          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100">
+            <MessageSquare size={32} className="text-emerald-600" />
+          </div>
+          
+          <h3 className="mb-2 text-xl font-bold text-slate-900">
+            Get Connected Quickly
+          </h3>
+          
+          <p className="mb-6 text-slate-600">
+            Just enter your mobile number, our team will connect with you within 2 min.
+          </p>
+
+          {message && (
+            <div className={`mb-4 p-3 rounded-lg text-sm ${message.includes("success") ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"}`}>
+              {message}
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <input
+              type="tel"
+              placeholder="Enter your mobile number"
+              value={mobileNumber}
+              onChange={(e) => setMobileNumber(e.target.value)}
+              required
+              className="w-full rounded-xl border-2 border-slate-200 bg-slate-50 px-4 py-3 text-slate-700 placeholder:text-slate-400 focus:border-emerald-500 focus:bg-white focus:outline-none"
+            />
+            
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full rounded-xl bg-emerald-600 px-6 py-3 font-semibold text-white transition hover:bg-emerald-700 hover:shadow-lg hover:shadow-emerald-600/30 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isSubmitting ? "Submitting..." : "Submit"}
+            </button>
+          </form>
+        </div>
+      </motion.div>
     </div>
   );
 }
@@ -105,7 +224,6 @@ export default function LandingPage() {
 function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-emerald-100/50">
-      {/* Subtle emerald glow at the bottom of header */}
       <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-emerald-300/60 to-transparent" />
       
       <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -201,24 +319,20 @@ function HeroGlow() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const timerRef = React.useRef(null);
 
-  // Function to get delay based on current update
   const getDelay = (index) => {
-    // Nikhil's update (id: 3) should have 20 second delay, others have 10 seconds
-    return updates[index].id === 3 ? 20000 : 10000;
+    return updates[index].id === 3 ? 30000 : 20000;
   };
 
   useEffect(() => {
     const rotateUpdate = () => {
       setCurrentIndex((prev) => {
         const nextIndex = (prev + 1) % updates.length;
-        // Schedule next rotation with appropriate delay
         const delay = getDelay(nextIndex);
         timerRef.current = setTimeout(rotateUpdate, delay);
         return nextIndex;
       });
     };
 
-    // Initial timeout
     timerRef.current = setTimeout(rotateUpdate, getDelay(0));
 
     return () => {
@@ -233,34 +347,27 @@ function HeroGlow() {
 
   return (
     <>
-      {/* Main glow */}
-      <div className="pointer-events-none absolute inset-x-0 top-16 flex justify-center">
-        <div className="h-[400px] w-full max-w-5xl rounded-full bg-gradient-to-b from-emerald-200/60 via-emerald-100/40 to-transparent blur-3xl" />
-      </div>
-      {/* Secondary accent glow */}
-      <div className="pointer-events-none absolute -left-32 top-32 h-64 w-64 rounded-full bg-emerald-300/20 blur-3xl" />
-      <div className="pointer-events-none absolute -right-32 top-48 h-64 w-64 rounded-full bg-teal-300/20 blur-3xl" />
-      {/* Subtle grid pattern */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)', backgroundSize: '40px 40px' }} />
       
-      {/* Professional Updates - Rotating */}
-      <motion.div
-        key={currentUpdate.id}
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: 20 }}
-        transition={{ duration: 0.5 }}
-        className={`pointer-events-none absolute ${currentUpdate.positionClass}`}
-      >
-        <div className="inline-flex items-center gap-2 rounded-full border border-slate-200/60 bg-white/60 backdrop-blur-sm px-3 py-1.5 shadow-sm">
-          <span className={`inline-flex items-center justify-center rounded-full p-1 ${currentUpdate.color}`}>
-            <Icon size={10} />
-          </span>
-          <span className="text-xs sm:text-sm text-slate-600">
-            <span className="font-semibold text-slate-800">{currentUpdate.user}</span> {currentUpdate.action}
-          </span>
-        </div>
-      </motion.div>
+      <div className="hidden md:block">
+        <motion.div
+          key={currentUpdate.id}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.5 }}
+          className={`pointer-events-none absolute ${currentUpdate.positionClass}`}
+        >
+          <div className="inline-flex items-center gap-2 rounded-full border border-slate-200/60 bg-white/60 backdrop-blur-sm px-3 py-1.5 shadow-sm">
+            <span className={`inline-flex items-center justify-center rounded-full p-1 ${currentUpdate.color}`}>
+              <Icon size={10} />
+            </span>
+            <span className="text-xs sm:text-sm text-slate-600">
+              <span className="font-semibold text-slate-800">{currentUpdate.user}</span> {currentUpdate.action}
+            </span>
+          </div>
+        </motion.div>
+      </div>
     </>
   );
 }
@@ -279,11 +386,11 @@ function HeroBadge() {
 
 function HeroHeader({ heroWordIndex }) {
   return (
-    <div className="text-center">
-      <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight text-slate-900">
-        Get Any<span className="text-emerald-600 inline-flex items-center justify-center w-[110px] sm:w-[140px] md:w-[170px] h-[1.2em] overflow-hidden"><AnimatePresence mode="wait"><motion.span key={heroWordIndex} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.25 }} className="absolute">{heroChangeWords[heroWordIndex]}</motion.span></AnimatePresence><span className="invisible">{heroChangeWords[heroWordIndex]}</span></span>Done Today
+    <div className="text-center px-2 sm:px-0">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-slate-900">
+        Get Any<span className="text-emerald-600 inline-flex items-center justify-center w-[70px] sm:w-[90px] md:w-[110px] lg:w-[140px] h-[1.2em] overflow-hidden ml-1 sm:ml-2"><AnimatePresence mode="wait"><motion.span key={heroWordIndex} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.25 }} className="absolute">{heroChangeWords[heroWordIndex]}</motion.span></AnimatePresence><span className="invisible">{heroChangeWords[heroWordIndex]}</span></span><span className="mx-1">Done Today</span>
       </h1>
-      <p className="mx-auto mt-5 max-w-2xl text-base sm:text-lg text-slate-600">
+      <p className="mx-auto mt-4 sm:mt-5 max-w-xl px-4 sm:px-0 text-sm sm:text-base md:text-lg text-slate-600">
         Connect with trusted professionals and get everyday work done faster.
       </p>
     </div>
@@ -292,7 +399,7 @@ function HeroHeader({ heroWordIndex }) {
 
 function TabSwitcher({ activeTab, setActiveTab }) {
   return (
-    <div className="mt-8 flex flex-wrap justify-center gap-2">
+    <div className="mt-6 sm:mt-8 flex flex-wrap justify-center gap-1.5 sm:gap-2 px-2 sm:px-0">
       {tabs.map((tab) => {
         const Icon = tab.icon;
         const active = activeTab === tab.id;
@@ -300,14 +407,14 @@ function TabSwitcher({ activeTab, setActiveTab }) {
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
-            className={`inline-flex items-center gap-2 rounded-xl border px-4 py-2.5 text-sm font-semibold transition ${
+            className={`inline-flex items-center gap-1.5 sm:gap-2 rounded-xl border px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-semibold transition ${
               active
                 ? "border-emerald-600 bg-emerald-600 text-white shadow-lg shadow-emerald-600/25"
                 : "border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:shadow-sm"
             }`}
           >
-            <Icon size={14} />
-            {tab.label}
+            <Icon size={12} />
+            <span className="hidden sm:inline">{tab.label}</span>
           </button>
         );
       })}
@@ -315,53 +422,66 @@ function TabSwitcher({ activeTab, setActiveTab }) {
   );
 }
 
-function SearchCard({ templateIndex }) {
+function SearchCard({ templateIndex, onPostTask }) {
+  const [inputValue, setInputValue] = useState(taskTemplates[templateIndex] || "");
+  const [isFocused, setIsFocused] = useState(false);
+
+  useEffect(() => {
+    // Only update with template when not focused and input is empty
+    if (!isFocused && !inputValue) {
+      setInputValue(taskTemplates[templateIndex]);
+    }
+  }, [templateIndex, isFocused, inputValue]);
+
+  const handleFocus = () => {
+    setIsFocused(true);
+    setInputValue(""); // Clear template when user clicks to type
+  };
+
+  const handleBlur = () => {
+    setIsFocused(false);
+    // Optionally restore template if input is empty when blurred
+    if (!inputValue) {
+      setInputValue(taskTemplates[templateIndex]);
+    }
+  };
+
+  const handlePostClick = () => {
+    onPostTask(inputValue);
+  };
+
   return (
     <div className="mt-10 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl">
       <div className="h-1.5 bg-gradient-to-r from-emerald-500 via-emerald-400 to-teal-500" />
-      <div className="p-5 sm:p-6 md:p-7">
-        {/* Card Header */}
-        <div className="mb-4 flex items-center justify-between">
-          <h3 className="text-lg font-semibold text-slate-900">What do you need help with?</h3>
-          <span className="text-sm text-slate-400">Try these →</span>
+      <div className="p-4 sm:p-6 md:p-7">
+        <div className="mb-3 sm:mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <h3 className="text-base sm:text-lg font-semibold text-slate-900">What do you need help with?</h3>
+          <span className="text-xs sm:text-sm text-slate-400">Try these →</span>
         </div>
         
-        {/* Animated template */}
-        <div className="mb-4 h-8 overflow-hidden">
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={templateIndex}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.25 }}
-              className="text-base sm:text-lg font-medium text-slate-500"
-            >
-              {taskTemplates[templateIndex]}
-            </motion.p>
-          </AnimatePresence>
-        </div>
-
-        <div className="flex flex-col gap-3 sm:flex-row">
-          <label className="flex flex-1 items-center gap-3 rounded-xl border-2 border-slate-200 bg-slate-50 px-4 py-3 transition focus-within:border-emerald-500 focus-within:bg-white">
-            <Search size={18} className="text-emerald-600" />
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-stretch">
+          <label className="flex flex-1 items-start gap-2 sm:gap-3 rounded-xl border-2 border-slate-200 bg-slate-50 px-3 sm:px-4 py-3 sm:py-4 transition focus-within:border-emerald-500 focus-within:bg-white">
+            <Search size={20} className="text-emerald-600 flex-shrink-0 mt-1" />
             <input
               aria-label="Describe your task"
               type="text"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
               placeholder="Describe your task..."
-              className="w-full bg-transparent text-sm sm:text-base text-slate-700 placeholder:text-slate-400 focus:outline-none"
+              className="w-full bg-transparent text-sm sm:text-base text-slate-700 placeholder:text-slate-400 focus:outline-none pt-1"
             />
           </label>
 
-          <button className="h-12 sm:h-14 rounded-xl bg-emerald-600 px-6 text-sm sm:text-base font-semibold text-white transition hover:bg-emerald-700 hover:shadow-lg hover:shadow-emerald-600/30 sm:min-w-[150px] inline-flex items-center justify-center gap-2">
-            Post Task <ArrowRight size={18} />
+          <button onClick={handlePostClick} className="h-auto sm:h-[74px] rounded-xl bg-emerald-600 px-6 sm:px-8 py-4 sm:py-5 text-sm sm:text-base font-semibold text-white transition hover:bg-emerald-700 hover:shadow-lg hover:shadow-emerald-600/30 sm:min-w-[160px] inline-flex items-center justify-center gap-2 whitespace-nowrap">
+            Post Task <ArrowRight size={16} />
           </button>
         </div>
       </div>
 
-      {/* Trust indicators with enhanced styling */}
-      <div className="border-t border-slate-100 bg-slate-50 px-5 py-4">
-        <div className="flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm text-slate-500">
+      <div className="border-t border-slate-100 bg-slate-50 px-4 sm:px-5 py-3 sm:py-4">
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm text-slate-500">
           <span className="inline-flex items-center gap-1.5"><CheckCircle size={14} className="text-emerald-600" />Instant Matching</span>
           <span className="inline-flex items-center gap-1.5"><Shield size={14} className="text-emerald-600" />Verified Experts</span>
           <span className="inline-flex items-center gap-1.5"><MessageSquare size={14} className="text-emerald-600" />24/7 Support</span>
@@ -370,8 +490,6 @@ function SearchCard({ templateIndex }) {
     </div>
   );
 }
-
-/* ----------------------------- LOWER SECTIONS ----------------------------- */
 
 function CategoryChips() {
   return (

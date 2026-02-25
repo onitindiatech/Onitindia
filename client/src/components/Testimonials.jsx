@@ -14,7 +14,7 @@ function Testimonials() {
     {
       name: "Sneha Patel",
       profession: "Entrepreneur",
-      text: "Found reliable helpers for my startup in just a few hours!",
+      text: "Found reliable performers for my startup in designing!",
       img: img6,
     },
     {
@@ -26,25 +26,25 @@ function Testimonials() {
     {
       name: "Abhi Reddy",
       profession: "Private job",
-      text: "Booked a plumber instantly — no calls, no waiting. Just OnIT!",
+      text: "OnIT helped me to get my reseach work done",
       img: img2,
     },
     {
       name: "Kiran Das",
       profession: "Cafe Owner",
-      text: "Found someone to fix my espresso machine within an hour. Amazing service!",
+      text: "Found someone to design menu and videographer to make content",
       img: img4,
     },
     {
       name: "Bunny",
       profession: "Freelancer",
-      text: "Used OnIT to hire quick help for a shoot — worked perfectly.",
+      text: "Work got faster and convinient.",
       img: img5,
     },
     {
       name: "Vikram Mehta",
       profession: "Event Planner",
-      text: "Needed last-minute hands for setup. OnIT connected me fast and saved my day!",
+      text: "helped me find local assistants for my events, making setup and coordination so much easier.",
       img: img1,
     },
   ];

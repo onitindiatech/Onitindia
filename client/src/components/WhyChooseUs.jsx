@@ -35,7 +35,7 @@ export default function WhyChooseOnIt() {
             </div>
             <div>
               <h3 className="text-sm md:text-xl font-bold text-black mb-1 -mt-3 md:mb-2 ml-2 md:ml-5">
-                Zero Commission
+                Low Commission
               </h3>
               <p className="text-zinc-500 text-[10px] md:text-sm leading-relaxed ml-2 md:ml-5">
                 Help is available anytime and anywhere
@@ -115,7 +115,7 @@ export default function WhyChooseOnIt() {
               <img src={t3} alt="User 3" className="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-full border-2 border-white object-cover" />
             </div>
             <div>
-              <h3 className="text-lg md:text-xl font-bold text-black">50K+</h3>
+              <h3 className="text-lg md:text-xl font-bold text-black">1K+</h3>
               <p className="text-[10px] md:text-xs text-gray-500 font-medium">Trusted Users</p>
             </div>
           </GradientCard>

@@ -25,6 +25,7 @@ import CampusDetail from "./components/CampusDetail";
 import SEO from "./components/SEO";
 import AdminApp from "./components/Admin/AdminApp";
 import ScrollToTop from "./components/ScrollToTop";
+import DeletionPage from "./components/Admin/pages/DeletionPage";
 
 function Home() {
   return (
@@ -66,6 +67,7 @@ const MainContent = () => {
         <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="/add-post" element={<AddPost />} />
+        <Route path="/deletion" element={<DeletionPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
         <Route path="/admin/*" element={<AdminApp />} />

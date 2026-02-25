@@ -227,16 +227,18 @@ function BlogList() {
       <div className="max-w-[1400px] mx-auto px-4 md:px-12 pt-28 md:pt-24 pb-32">
 
         {/* Header */}
-        <header className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 md:mb-20">
-          <div className="max-w-2xl">
-            <h1 className="text-4xl md:text-7xl font-bold tracking-tight mb-3 md:mb-6">
+        <header className="flex flex-col md:flex-row gap-6 mb-8 md:mb-20">
+          <div className="flex flex-col gap-4 w-full md:w-auto">
+            <div className="w-full md:w-80">
+              <SearchInput value={searchQuery} onChange={setSearchQuery} />
+            </div>
+            <h1 className="text-4xl md:text-7xl font-bold tracking-tight">
               The <span className="text-green-600">Journal</span>.
             </h1>
             <p className="text-base md:text-xl text-zinc-500 font-medium max-w-lg leading-relaxed">
               Insights, updates, and stories from the Onit team.
             </p>
           </div>
-          <SearchInput value={searchQuery} onChange={setSearchQuery} />
         </header>
 
         {/* Hero Section */}

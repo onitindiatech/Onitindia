@@ -12,26 +12,26 @@ import t6 from "../assets/t6.png";
 
 const knowAboutUsCards = [
   {
-    seekerQ: "I need someone to fix my leaking tap quickly.",
-    performerA: "I’m a local plumber who can help you right away.",
+    seekerQ: "Build a list of 200 companies with contact details in Excel.",
+    performerA: "I can research and compile an accurate, well-structured list for you",
     seekerAvatar: t3,
     performerAvatar: t1, // plumber avatar
   },
   {
-    seekerQ: "I’m shifting apartments and need help with packing.",
-    performerA: "I can assist with packing and moving your stuff safely.",
+    seekerQ: "Create 10 social media posts using this Canva template",
+    performerA: "I can design these posts quickly and neatly",
     seekerAvatar: t4,
     performerAvatar: t2, // mover avatar
   },
   {
-    seekerQ: "Can someone help me set up my new smart TV?",
-    performerA: "I’ve experience with installing smart devices - I can help!",
+    seekerQ: "Create a PPT from these notes",
+    performerA: "I can make a clear and professional presentation.",
     seekerAvatar: t6,
     performerAvatar: t5, // tech installer
   },
   {
-    seekerQ: "I’m busy with work, and my plants need daily watering.",
-    performerA: "I live nearby and can take care of your plants every day.",
+    seekerQ: "Clean and fix formulas in this Excel sheet.",
+    performerA: "I can organize and correct the sheet properly.",
     seekerAvatar: t5,
     performerAvatar: t2, // gardener
   },
@@ -42,8 +42,8 @@ const knowAboutUsCards = [
     performerAvatar: t4, // teacher
   },
   {
-    seekerQ: "I have guests coming - can anyone clean my house today?",
-    performerA: "I offer same-day house cleaning services in your area.",
+    seekerQ: "Visit this store and take product shelf photos",
+    performerA: "I can visit and share the photos.",
     seekerAvatar: t1,
     performerAvatar: t6, // cleaner
   },

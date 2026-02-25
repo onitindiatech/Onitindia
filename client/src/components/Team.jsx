@@ -43,8 +43,7 @@ const Team = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {teamMembers.map((item, index) => (
                         <motion.div
-                            key={index} c
-                            initial={{ opacity: 0, y: 20 }}
+                            key={index}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.2, duration: 0.5 }}
