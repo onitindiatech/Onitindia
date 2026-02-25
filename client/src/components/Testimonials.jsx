@@ -12,7 +12,7 @@ import img7 from "../assets/avi.jpg";
 function Testimonials() {
   const testimonials = [
     {
-      name: "Sneha Patel",
+      name: "Janine",
       profession: "Entrepreneur",
       text: "Found reliable performers for my startup in designing!",
       img: img6,

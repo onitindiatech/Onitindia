@@ -2,25 +2,30 @@
     "version": 2,
     "builds": [
         {
-            "src": "package.json",
-            "use": "@vercel/static-build",
-            "config": {
-                "distDir": "client/dist"
-            }
+            "src": "client/dist/**",
+            "use": "@vercel/static"
         },
         {
             "src": "server/server.js",
             "use": "@vercel/node"
         }
     ],
-    "rewrites": [
+    "routes": [
         {
-            "source": "/api/(.*)",
-            "destination": "/server/server.js"
+            "src": "/api/submit-task",
+            "dest": "/server/server.js",
+            "methods": ["POST", "GET", "OPTIONS"],
+            "headers": {
+                "Access-Control-Allow-Origin": "*"
+            }
         },
         {
-            "source": "/((?!api/).*)",
-            "destination": "/index.html"
+            "src": "/api/(.*)",
+            "dest": "/server/server.js"
+        },
+        {
+            "src": "/((?!api/).*)",
+            "dest": "/client/dist/index.html"
         }
     ]
 }

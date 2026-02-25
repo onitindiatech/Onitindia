@@ -1,5 +1,5 @@
-import express from "express";
-import cors from "cors";
+const express = require("express");
+const cors = require("cors");
 
 const app = express();
 
@@ -40,13 +40,5 @@ app.post("/api/submit-task", async (req, res) => {
   }
 });
 
-/* ----------------------------------------
-    START SERVER
----------------------------------------- */
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () =>
-  console.log(`🚀 Server running on http://localhost:${PORT}`)
-);
-
-export default app;
+// For Netlify Functions, we need to export the handler
+module.exports = app;
