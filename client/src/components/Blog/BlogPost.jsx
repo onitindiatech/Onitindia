@@ -133,7 +133,7 @@ function BlogPost() {
               "name": "OnIT India",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://www.onitindia.com/logo-2.jpg"
+                "url": "https://www.onitindia.com/logo.png"
               }
             }
           }}

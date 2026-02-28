@@ -302,7 +302,7 @@ export default function CampusDetail() {
                                     : "text-slate-600 hover:text-slate-900"
                                     }`}
                             >
-                                For Students
+                                For Task Performers
                             </button>
 
                             {/* Posters Button */}

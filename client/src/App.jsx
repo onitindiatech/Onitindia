@@ -22,6 +22,7 @@ import BlogList from "./components/Blog/BlogList";
 import BlogPost from "./components/Blog/BlogPost";
 import Campus from "./components/Campus.jsx";
 import CampusDetail from "./components/CampusDetail";
+import HowItWorks from "./components/HowItWorks";
 import SEO from "./components/SEO";
 import AdminApp from "./components/Admin/AdminApp";
 import ScrollToTop from "./components/ScrollToTop";
@@ -38,13 +39,12 @@ function Home() {
       />
       <section id="home"><Landingpage /></section>
       <section id="knowaboutus"><KnowAboutUs /></section>
-      <section id="tasksee"><Task_see /></section>
       <section id="domain"><Domain /></section>
+      <section id="tasksee"><Task_see /></section>
+      <section id="howitworks"><HowItWorks /></section>
       <section id="whychooseus"><WhyChooseUs /></section>
       {/* <section id="partner"><Partner /></section> */}
       <section id="team"><Team /></section>
-      <section id="Campus"><Campus /></section>
-      <section id="marquee"><Marquee /></section>
       <section id="testimonials"><Testimonials /></section>
       <section id="footer"><Footer /></section>
     </>
@@ -56,7 +56,7 @@ const MainContent = () => {
   const isAdminPath = location.pathname.startsWith('/admin');
 
   return (
-    <div className="min-h-screen w-full bg-gray-100 overflow-hidden">
+    <div className="min-h-screen w-full overflow-hidden font-sans antialiased">
       {!isAdminPath && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />

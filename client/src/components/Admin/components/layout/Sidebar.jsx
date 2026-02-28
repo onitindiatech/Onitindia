@@ -18,7 +18,6 @@ import {
 } from 'lucide-react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
-import logoImage from '../../../../assets/logo.png';
 
 const Sidebar = ({ isCollapsed, toggleSidebar }) => {
     const { logout } = useAuth();
@@ -84,15 +83,11 @@ const Sidebar = ({ isCollapsed, toggleSidebar }) => {
                 {!isCollapsed && (
                     <div className="absolute left-1/2 w-48 h-48 bg-emerald-50/50 blur-[80px] rounded-full -z-10 pointer-events-none"></div>
                 )}
-                <img
-                    src={logoImage}
-                    alt="OnIT Logo"
-                    className={`shrink-0 -mt-15 object-contain transform transition-all duration-700 ease-out ${isCollapsed ? 'h-16 w-16' : 'h-40 w-full hover:scale-105 active:scale-95'}`}
-                />
-                {!isCollapsed && (
+                {isCollapsed ? (
+                    <span className="text-[10px] font-black text-slate-800 tracking-widest uppercase">ADM</span>
+                ) : (
                     <div className="flex flex-col items-center -mt-8 relative -mt-10">
                         <div className="flex items-center gap-2.5 px-5 py-2.5 rounded-2xl bg-white shadow-[0_10px_40px_rgba(0,0,0,0.06)] -mt-5 border border-emerald-200 backdrop-blur-xl group/badge transition-all duration-300 hover:shadow-emerald-500/15 hover:border-emerald-200">
-
                             <span className="text-[10px] font-black text-slate-800 tracking-[0.45em] uppercase  leading-none">
                                 ADM<span className="text-emerald-600 font-extrabold">IN</span>
                             </span>

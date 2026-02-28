@@ -11,7 +11,7 @@ export default function SEO({
     canonical,
     schema
 }) {
-    const defaultImage = "https://onitindia.com/logo-2.jpg";
+    const defaultImage = "https://onitindia.com/logo.png";
     const seoImage = image || defaultImage;
     const siteUrl = "https://onitindia.com";
     const fullTitle = title ? `${title} | OnIT India` : 'OnIT India | Flexible Local Work & Campus Tasks';

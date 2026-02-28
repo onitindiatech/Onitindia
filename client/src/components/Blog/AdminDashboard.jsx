@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { PlusCircle, FileText, LogOut } from "react-feather";
-import logoImage from "../../assets/logo.png";
 
 function AdminDashboard() {
   const navigate = useNavigate();
